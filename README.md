@@ -41,7 +41,7 @@ You can substitute these items for anything that is equivalent. Arduino code has
 ### getting started
 
 * Assemble breadboard
-  * Use hardware.fzz as a reference
+  * Use hardware.fzz or png as a reference
   * Solder leads on switches from remote
   * Attach Spark Core to breadboard
   * Pins and switches match up to code in arduno/
@@ -64,4 +64,5 @@ You can substitute these items for anything that is equivalent. Arduino code has
 
 Things that will help you learn about how this all works
 
+* [Fritzing](http://fritzing.org/download/) for reading .fzz files
 * [Spark Cloud API](https://github.com/spark/docs/blob/master/docs/api.md)
