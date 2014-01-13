@@ -7,10 +7,6 @@ remote start -> spark core -> mifi -> internet <- iphone
 
 I started this project to get remote start working on my car from my iPhone. Much like Viper SmartStart or CompuStar’s Drone Mobile.
 
-### disclaimer
-
-This is a project for myself. I am happy to share what I have done but make no guarantee that anyone else attempting this will enjoy the same success, or failures, that I have.
-
 ### current features
 
 * Simple API
@@ -70,3 +66,7 @@ Things that will help you learn about how this all works
 
 * [Fritzing](http://fritzing.org/download/) for reading .fzz files
 * [Spark Cloud API](https://github.com/spark/docs/blob/master/docs/api.md)
+
+### warning
+
+This is a project for myself. I am happy to share what I have done but make no guarantee that anyone else attempting this will enjoy the same success, or failures, that I have.
