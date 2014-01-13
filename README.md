@@ -15,6 +15,10 @@ This is a project for myself. I am happy to share what I have done but make no g
 
 * Simple API
   * All calls to the Spark Core can be done through a REST call. This gives me the option to make anything that has an internet connection a remote. Ideas include my TiVo and Pebble watch.
+* iOS Client
+  * Screenshots
+    * http://cl.ly/1z3i0g3I2X1M
+    * http://cl.ly/3Y2Z1Z150E1a
 * Four buttons are supported on the remote
 * Status LED
 * Temperature sensor
