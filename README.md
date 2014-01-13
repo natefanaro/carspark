@@ -14,7 +14,7 @@ This is a project for myself. I am happy to share what I have done but make no g
 ### current features
 
 * Simple API
-** All calls to the Spark Core can be done through a REST call. This gives me the option to make anything that has an internet connection a remote. Ideas include my TiVo and Pebble watch.
+  * All calls to the Spark Core can be done through a REST call. This gives me the option to make anything that has an internet connection a remote. Ideas include my TiVo and Pebble watch.
 * Four buttons are supported on the remote
 * Status LED
 * Temperature sensor
@@ -41,24 +41,24 @@ You can substitute these items for anything that is equivalent. Arduino code has
 ### getting started
 
 * Assemble breadboard
-** Use hardware.fzz as a reference
-** Solder leads on switches from remote
-** Attach Spark Core to breadboard
-** Pins and switches match up to code in arduno/
+  * Use hardware.fzz as a reference
+  * Solder leads on switches from remote
+  * Attach Spark Core to breadboard
+  * Pins and switches match up to code in arduno/
 
 * Setup Spark Core
-** Follow instructions on (Connecting your core)[http://docs.spark.io/#/connect]
-** (Create a new App)[https://www.spark.io/build/new] at spark.io
-** Paste the code from arduino/the_user_app.cpp to this new App
-** Obtain your device_id and access_token from spark.io
+  * Follow instructions on (Connecting your core)[http://docs.spark.io/#/connect]
+  * (Create a new App)[https://www.spark.io/build/new] at spark.io
+  * Paste the code from arduino/the_user_app.cpp to this new App
+  * Obtain your device_id and access_token from spark.io
 
 * iOS
-** Install Cocoapods
-*** cd carspark/iOS
-*** pod install
-** Open Carspark.xcworkspace
-** Add device_id and access_token to iOS/Carspark/SparkCom.m
-** Build and install device on your iPhone or iPod Touch
+  * Install Cocoapods
+    * cd carspark/iOS
+    * pod install
+  * Open Carspark.xcworkspace
+  * Add device_id and access_token to iOS/Carspark/SparkCom.m
+  * Build and install device on your iPhone or iPod Touch
 
 ### references
 
