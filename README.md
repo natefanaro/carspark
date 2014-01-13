@@ -18,7 +18,7 @@ This is a project for myself. I am happy to share what I have done but make no g
 * iOS Client
   * Screenshots
     * http://cl.ly/1z3i0g3I2X1M
-    * http://cl.ly/3Y2Z1Z150E1a
+    * http://cl.ly/1u2e3W1Z1b3h
 * Four buttons are supported on the remote
 * Status LED
 * Temperature sensor
