@@ -42,9 +42,10 @@ You can substitute these items for anything that is equivalent. Arduino code has
 
 * Assemble breadboard
   * Use hardware.fzz or png as a reference
+    * [Sample](http://cl.ly/image/2F0Y233C151m) 
   * Solder leads on switches from remote
   * Attach Spark Core to breadboard
-  * Pins and switches match up to code in arduno/
+  * Pins and switches match up to code in arduino
 
 * Setup Spark Core
   * Follow instructions on (Connecting your core)[http://docs.spark.io/#/connect]
