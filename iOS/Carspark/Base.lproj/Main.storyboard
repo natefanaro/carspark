@@ -67,8 +67,8 @@
                                 <rect key="frame" x="-5" y="256" width="330" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Lock"/>
                                     <segment title="Unlock"/>
+                                    <segment title="Lock"/>
                                 </segments>
                                 <connections>
                                     <action selector="doorLock:" destination="CZ4-MO-1fc" eventType="valueChanged" id="kbn-ib-Wvy"/>
