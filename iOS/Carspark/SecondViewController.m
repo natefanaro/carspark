@@ -13,7 +13,7 @@
 @end
 
 @implementation SecondViewController
-@synthesize activity, lastStatus, tempLabel;
+@synthesize activity, lastStatus, tempLabel, appSettingsViewController;
 
 - (void)viewDidLoad
 {
@@ -73,6 +73,35 @@
     lastStatus.text = [data description];
     [activity stopAnimating];
     NSLog(@"requestFinished: data: %@", data);
+}
+
+#pragma mark -
+#pragma mark IASKAppSettingsViewControllerDelegate protocol
+- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IASKAppSettingsViewController*)appSettingsViewController {
+	if (!appSettingsViewController) {
+		appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
+		appSettingsViewController.delegate = self;
+	}
+	return appSettingsViewController;
+}
+
+- (IBAction)showSettings:(id)sender {
+
+    NSLog(@"showSettings tapped");
+
+    UINavigationController *aNavController = [[UINavigationController alloc] initWithRootViewController:self.appSettingsViewController];
+
+    // Don't display InAppSettingsKit credits for creators.
+    [self.appSettingsViewController setShowCreditsFooter:NO];
+
+    aNavController.modalPresentationStyle =  UIModalPresentationFullScreen;
+
+    self.appSettingsViewController.showDoneButton = YES;
+    [self presentViewController:aNavController animated:YES completion:NULL];
 }
 
 @end

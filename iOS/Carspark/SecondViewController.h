@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IASKAppSettingsViewController.h"
 
-@interface SecondViewController : UIViewController <SparkComDelegate>
+@interface SecondViewController : UIViewController <SparkComDelegate, IASKSettingsDelegate>
 {
     IBOutlet UIActivityIndicatorView  *activity;
     IBOutlet UITextView *lastStatus;
     IBOutlet UILabel *tempLabel;
+
+    IASKAppSettingsViewController *appSettingsViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity;
@@ -23,5 +26,8 @@
 - (IBAction)buttonTest:(UIButton *)sender;
 - (IBAction)buttonStatus:(UIButton *)sender;
 
+// settings
+@property (nonatomic, retain) IASKAppSettingsViewController *appSettingsViewController;
+- (IBAction) showSettings: (id) sender;
 
 @end

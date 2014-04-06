@@ -25,6 +25,9 @@
 		4322EEB6188343E900F61699 /* SparkCom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322EEB5188343E900F61699 /* SparkCom.m */; };
 		4322EEB7188343E900F61699 /* SparkCom.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322EEB5188343E900F61699 /* SparkCom.m */; };
 		4322EEB91883440400F61699 /* SparkComTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4322EEB81883440400F61699 /* SparkComTest.m */; };
+		436C622718F0FA5C0061ADAD /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 436C622518F0FA5C0061ADAD /* 19-gear.png */; };
+		436C622818F0FA5C0061ADAD /* 19-gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 436C622618F0FA5C0061ADAD /* 19-gear@2x.png */; };
+		436C622E18F1005C0061ADAD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 436C622D18F1005C0061ADAD /* Settings.bundle */; };
 		AD9C5FFDF63E4A65872B0FA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A684D03EB0147FB874C4F3C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		4322EEB4188343E900F61699 /* SparkCom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparkCom.h; sourceTree = "<group>"; };
 		4322EEB5188343E900F61699 /* SparkCom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparkCom.m; sourceTree = "<group>"; };
 		4322EEB81883440400F61699 /* SparkComTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SparkComTest.m; path = ../Carspark/SparkComTest.m; sourceTree = "<group>"; };
+		436C622518F0FA5C0061ADAD /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
+		436C622618F0FA5C0061ADAD /* 19-gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear@2x.png"; sourceTree = "<group>"; };
+		436C622D18F1005C0061ADAD /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,9 @@
 		4322EE83188318F000F61699 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				436C622D18F1005C0061ADAD /* Settings.bundle */,
+				436C622518F0FA5C0061ADAD /* 19-gear.png */,
+				436C622618F0FA5C0061ADAD /* 19-gear@2x.png */,
 				4322EE84188318F000F61699 /* Carspark-Info.plist */,
 				4322EE85188318F000F61699 /* InfoPlist.strings */,
 				4322EE88188318F000F61699 /* main.m */,
@@ -218,9 +227,12 @@
 		4322EE71188318F000F61699 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Nate Fanaro";
 				TargetAttributes = {
+					4322EE78188318F000F61699 = {
+						DevelopmentTeam = 7E585Y24NX;
+					};
 					4322EE9C188318F000F61699 = {
 						TestTargetID = 4322EE78188318F000F61699;
 					};
@@ -250,9 +262,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				436C622718F0FA5C0061ADAD /* 19-gear.png in Resources */,
 				4322EE98188318F000F61699 /* Images.xcassets in Resources */,
 				4322EE87188318F000F61699 /* InfoPlist.strings in Resources */,
 				4322EE90188318F000F61699 /* Main.storyboard in Resources */,
+				436C622818F0FA5C0061ADAD /* 19-gear@2x.png in Resources */,
+				436C622E18F1005C0061ADAD /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +379,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -403,7 +417,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -439,6 +452,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Carspark/Carspark-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -449,6 +464,7 @@
 				);
 				INFOPLIST_FILE = "Carspark/Carspark-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -460,6 +476,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Carspark/Carspark-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -470,6 +488,7 @@
 				);
 				INFOPLIST_FILE = "Carspark/Carspark-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -477,7 +496,6 @@
 		4322EEB2188318F000F61699 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Carspark.app/Carspark";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -500,7 +518,6 @@
 		4322EEB3188318F000F61699 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Carspark.app/Carspark";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

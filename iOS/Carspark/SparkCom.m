@@ -12,14 +12,24 @@
 
 @synthesize lastResponse;
 
-static NSString *deviceId = @"deviceId";
-static NSString *accessToken = @"accessToken";
-
 - (void)getDataForRequest:(NSString *)path
               requestType:(NSString *)type
               withOptions:(NSDictionary *)options
              withSelector:(SEL)selector {
+
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if ([[prefs stringForKey:@"deviceId"] length] <= 0 || [[prefs stringForKey:@"accessToken"] length] <= 0) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Misconfigured"
+                                                          message:@"Device ID and/or Access Token are missing. Please add in Settings."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [self.delegate performSelectorOnMainThread:selector withObject:nil waitUntilDone:NO];
+        [message show];
+        return;
+    }
+
     NSLog(@"path %@", path);
     NSLog(@"type %@", type);
 
@@ -28,7 +38,7 @@ static NSString *accessToken = @"accessToken";
         return;
     }
 
-    NSString *url = [NSString stringWithFormat:@"https://api.spark.io/v1/devices/%@/%@", deviceId, path];
+    NSString *url = [NSString stringWithFormat:@"https://api.spark.io/v1/devices/%@/%@", [prefs stringForKey:@"deviceId"], path];
     
     if (options == nil) {
         options = [[NSDictionary alloc] init];
@@ -36,7 +46,7 @@ static NSString *accessToken = @"accessToken";
 
     NSMutableDictionary *params = [options mutableCopy];
 
-    params[@"access_token"] = accessToken;
+    params[@"access_token"] = [prefs stringForKey:@"accessToken"];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
