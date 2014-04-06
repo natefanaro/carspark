@@ -75,6 +75,7 @@ See remote-start.cpp for more info on what api calls can be used.
 Events are sent for every api call that is made and if a connection to Spark Cloud is reestablished.
 
 You can subscribe to events like this.
+
     curl -H "Authorization: Bearer <access_token>" https://api.spark.io/v1/devices/<device_id>/events
 
 ### warning
