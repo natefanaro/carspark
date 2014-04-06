@@ -32,6 +32,15 @@
 			<key>Key</key>
 			<string>accessToken</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+			<key>FooterText</key>
+			<string>Device ID and Access Token for your Spark Core can be found at
+http://www.spark.io/build</string>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>
