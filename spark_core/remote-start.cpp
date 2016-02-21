@@ -1,15 +1,15 @@
-// ----------------------------------------------------------------
-// Spark core remote car starter
+//
+// Particle Electron remote car starter
 // https://github.com/natefanaro/carspark
-// ----------------------------------------------------------------
-// To use, log in to https://www.spark.io/build and paste this in.
-// ----------------------------------------------------------------
+//
+// To use, log in to https://build.particle.io and paste this in a new project
+//
 
 // Remote Buttons
-const int pin_start = D0;
-const int pin_lock = D1;
-const int pin_unlock = D2;
-const int pin_trunk = D3;
+const int pin_start = C0;
+const int pin_lock = C1;
+const int pin_unlock = C2;
+const int pin_trunk = C3;
 
 // Status LEDs
 const int pin_led1 = D4;
@@ -28,35 +28,33 @@ int tempSensorValue;
 void setup()
 {
 	// Sample call
-	// curl https://api.spark.io/v1/devices/<device_id>/?access_token=<access_token>
+	// curl https://api.particle.io/v1/devices/<device_id>/?access_token=<access_token>
 
-	// Register our Spark functions. Max of Spark.function is 4 so we have to work around that.
-
-	Spark.function("start", start);
-	// curl https://api.spark.io/v1/devices/<device_id>/start -d access_token=<access_token>
+	Particle.function("start", start);
+	// curl https://api.particle.io/v1/devices/<device_id>/start -d access_token=<access_token>
 
 	// Send 1 for lock, 0 for unlock
-	Spark.function("door_lock", door_lock);
-	// curl https://api.spark.io/v1/devices/<device_id>/door_lock -d "access_token=<access_token>&mode=0"
-	// curl https://api.spark.io/v1/devices/<device_id>/door_lock -d "access_token=<access_token>&mode=1"
+	Particle.function("door_lock", door_lock);
+	// curl https://api.particle.io/v1/devices/<device_id>/door_lock -d "access_token=<access_token>&mode=0"
+	// curl https://api.particle.io/v1/devices/<device_id>/door_lock -d "access_token=<access_token>&mode=1"
 
 	// Required Options: panic, siren (not enabled yet since this is annoying, and I might not need this)
-	// Spark.function("alarm", alarm);
-	// curl https://api.spark.io/v1/devices/<device_id>/alarm -d "access_token=<access_token>&mode=panic"
-	// curl https://api.spark.io/v1/devices/<device_id>/alarm -d "access_token=<access_token>&mode=alarm"
+	// Particle.function("alarm", alarm);
+	// curl https://api.particle.io/v1/devices/<device_id>/alarm -d "access_token=<access_token>&mode=panic"
+	// curl https://api.particle.io/v1/devices/<device_id>/alarm -d "access_token=<access_token>&mode=alarm"
 
 	// Required Options: 1,2
-	Spark.function("aux", aux);
-	// curl https://api.spark.io/v1/devices/<device_id>/aux -d "access_token=<access_token>&mode=1"
-	// curl https://api.spark.io/v1/devices/<device_id>/aux -d "access_token=<access_token>&mode=2"
+	Particle.function("aux", aux);
+	// curl https://api.particle.io/v1/devices/<device_id>/aux -d "access_token=<access_token>&mode=1"
+	// curl https://api.particle.io/v1/devices/<device_id>/aux -d "access_token=<access_token>&mode=2"
 
-	// Past this point puts you past the four command limit of Spark.function if all above are enabled.
+	// Past this point puts you past the four command limit of Particle.function if all above are enabled.
 
 	// Required options: test, carcheck
-	Spark.function("opt", opt);
-	// curl https://api.spark.io/v1/devices/<device_id>/opt -d "access_token=<access_token>&mode=test"
-	// curl https://api.spark.io/v1/devices/<device_id>/opt -d "access_token=<access_token>&mode=carcheck"
-	// curl https://api.spark.io/v1/devices/<device_id>/opt -d "access_token=<access_token>&mode=valet"
+	Particle.function("opt", opt);
+	// curl https://api.particle.io/v1/devices/<device_id>/opt -d "access_token=<access_token>&mode=test"
+	// curl https://api.particle.io/v1/devices/<device_id>/opt -d "access_token=<access_token>&mode=carcheck"
+	// curl https://api.particle.io/v1/devices/<device_id>/opt -d "access_token=<access_token>&mode=valet"
 
 	// Configure pins
 	// Remote
@@ -73,10 +71,10 @@ void setup()
 
 	// Misc input
 
-	// curl https://api.spark.io/v1/devices/<device_id>/temperature?access_token=<access_token>
-	Spark.variable("temperature", &temperature, INT);
+	// curl https://api.particle.io/v1/devices/<device_id>/temperature?access_token=<access_token>
+	//Particle.variable("temperature", &temperature, INT);
 
-	pinMode(pin_temp, INPUT);
+	//pinMode(pin_temp, INPUT);
 }
 
 bool status_sent = false;
@@ -87,41 +85,22 @@ void loop()
 	tempSensorValue = analogRead(pin_temp);
 	temperature = temp();
 
-	if (Spark.connected()) {
+	if (Particle.connected()) {
 		// blue for on
-		digitalWrite(pin_led4, HIGH);
+		//digitalWrite(pin_led4, HIGH);
 
 		// red off
-		digitalWrite(pin_led1, LOW);
+		//digitalWrite(pin_led1, LOW);
 
 		if (lastAction.length()) {
-			Spark.publish("action", lastAction);
+			Particle.publish("action", lastAction);
 			lastAction = "";
 		}
 
 		// Sending details of our connection
-		// Strange thing happening. I think if four messages are published, the rest don't make it.
 		if (!status_sent) {
-			Spark.publish("status", "Connection to spark cloud established");
-			Spark.publish("status", "deviceID: " + Spark.deviceID());
-			Spark.publish("status", "SSID: " + String(Network.SSID()));
-
-			// Holds a formatted IP address
-			char localIPStr[24];
-			IPAddress localIP = Network.localIP();
-			sprintf(localIPStr, "%d.%d.%d.%d", localIP[0], localIP[1], localIP[2], localIP[3]);
-			Spark.publish("status", "localIP: " + String(localIPStr));
-
-			char subnetMaskStr[24];
-			IPAddress subnetMask = Network.subnetMask();
-			sprintf(subnetMaskStr, "%d.%d.%d.%d", subnetMask[0], subnetMask[1], subnetMask[2], subnetMask[3]);
-			Spark.publish("status", "subnetMask: " + String(subnetMaskStr));
-
-			char gatewayIPStr[24];
-			IPAddress gatewayIP = Network.gatewayIP();
-			sprintf(gatewayIPStr, "%d.%d.%d.%d", gatewayIP[0], gatewayIP[1], gatewayIP[2], gatewayIP[3]);
-			Spark.publish("status", "gatewayIP: " + String(gatewayIPStr));
-
+			//Particle.publish("status", "Connection to Particle cloud established");
+			//Particle.publish("status", "deviceID: " + Particle.deviceID());
 			status_sent = true;
 		}
 	}
