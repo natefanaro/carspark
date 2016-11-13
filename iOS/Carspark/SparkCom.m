@@ -38,7 +38,7 @@
         return;
     }
 
-    NSString *url = [NSString stringWithFormat:@"https://api.spark.io/v1/devices/%@/%@", [prefs stringForKey:@"deviceId"], path];
+    NSString *url = [NSString stringWithFormat:@"https://api.particle.io/v1/devices/%@/%@", [prefs stringForKey:@"deviceId"], path];
     
     if (options == nil) {
         options = [[NSDictionary alloc] init];

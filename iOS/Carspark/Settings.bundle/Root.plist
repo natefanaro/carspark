@@ -38,8 +38,8 @@
 			<key>Title</key>
 			<string></string>
 			<key>FooterText</key>
-			<string>Device ID and Access Token for your Spark Core can be found at
-http://www.spark.io/build</string>
+			<string>Device ID and Access Token for your Particle Electron can be found at
+http://build.particle.io</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

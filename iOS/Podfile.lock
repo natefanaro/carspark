@@ -27,7 +27,7 @@ DEPENDENCIES:
   - InAppSettingsKit (~> 2.0.1)
 
 SPEC CHECKSUMS:
-  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
-  InAppSettingsKit: e8c460b5e7ff310f3324d7d9536bb1935a507686
+  AFNetworking: 6b0f579b7cfe3ede501df0248c7ee1976e926aec
+  InAppSettingsKit: 7cd20168a57c4d19d848ff17d952866902214971
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.39.0
